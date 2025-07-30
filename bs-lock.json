@@ -1,0 +1,68 @@
+{
+  "libraryDependencies": [
+    {
+      "url": "https://repo1.maven.org/maven2/com/monovore/decline_3/2.5.0/decline_3-2.5.0.jar",
+      "sha256": "Pc08S6+w4rYJUaE3FR/vodIkrA8EtqM1iYivncxJ5B8="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/monovore/decline-effect_3/2.4.1/decline-effect_3-2.4.1.jar",
+      "sha256": "moeOOawIhNMK/w692tjlk1Tv92AOgz4v5SNzlm9YEmM="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/indoorvivants/decline-derive_3/0.3.1/decline-derive_3-0.3.1.jar",
+      "sha256": "noVNmKJ9JzwedsIvWfk0ng4W9KXhyh9N+sD6LlJRMKM="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect_3/3.5.4/cats-effect_3-3.5.4.jar",
+      "sha256": "rGJ5et0jsDyRhfV0IDkkZxKq0t2kwrLRnQVk0j2rLJc="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/lihaoyi/os-lib_3/0.10.7/os-lib_3-0.10.7.jar",
+      "sha256": "jYEjXB67D+4QOqylFwX5sbqYp5/93fdaKqjWZZ+e7+E="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-core_3/0.18.40/smithy4s-core_3-0.18.40.jar",
+      "sha256": "AKeMPdFGjFMQP5uh5GlrkLifTF9jUQ+G8TmFlU8WS10="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/io/get-coursier/interface/1.0.28/interface-1.0.28.jar",
+      "sha256": "dZL+SceJtVQpSDGFrCKsbaQ2gKOcU7gYxQvKD7fdang="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.6/scala3-library_3-3.3.6.jar",
+      "sha256": "z03a92wM5xz2jKXS3HutRsWpIarxiQkxfdybpuZ/sSs="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-core_3/2.12.0/cats-core_3-2.12.0.jar",
+      "sha256": "24dUmBKBIVB4mRqoIoVi6AbYRevoRB9sU4756FtFYKQ="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_3/3.5.4/cats-effect-kernel_3-3.5.4.jar",
+      "sha256": "AzdWNv3RCGQXUx4DBbS3+6Pi9ivXskFYffBbXLlapcc="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-std_3/3.5.4/cats-effect-std_3-3.5.4.jar",
+      "sha256": "dI6y740BXHXpaEIoDCxkh4KlsP7HzEpLOoCi8m9qK6o="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/lihaoyi/geny_3/1.1.1/geny_3-1.1.1.jar",
+      "sha256": "OWWGSfkLYxpP1jGHck8WuooEXhsQpRNSjzRRf7Lt+Ys="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_3/2.11.0/scala-collection-compat_3-2.11.0.jar",
+      "sha256": "i8O4+FbX/9IfoND+WnKczaEiizlBLzIANRl5gx5inUg="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+      "sha256": "0+9XXj5JeWeNwBvx3M5RAhSTtNEft/G+itmCh3wWocA="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar",
+      "sha256": "Hrsrb55OtAIkl8GbHh6CUBnAhRT5YqqsGXFF+I7XMPE="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-kernel_3/2.12.0/cats-kernel_3-2.12.0.jar",
+      "sha256": "WqV9DJBrTG5FdeVUj06nUjosQUBCS335IjkWKgyhf3c="
+    }
+  ]
+}

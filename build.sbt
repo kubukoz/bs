@@ -19,7 +19,8 @@ lazy val root = (project in file("."))
       "com.lihaoyi" %% "os-lib" % "0.10.7",
 
       // Smithy4s
-      "com.disneystreaming.smithy4s" %% "smithy4s-core" % smithy4sVersion.value,
+      "com.disneystreaming.smithy4s" %% "smithy4s-json" % smithy4sVersion.value,
+      "io.get-coursier" % "interface" % "1.0.28",
 
       // Testing
       "org.typelevel" %% "weaver-cats" % "0.9.3" % Test,
