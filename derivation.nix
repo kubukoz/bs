@@ -24,6 +24,7 @@ let
 
         buildInputs = [ openjdk makeWrapper ];
         buildPhase = ''
+          # set -x
           echo $depDerivations
           printf "public class Wrapper {\n public static void main(String[] args) { \n new dotty.tools.dotc.Driver().main(args); \n } \n }\n" > Wrapper.java
           javac -cp $compilerClasspath Wrapper.java
