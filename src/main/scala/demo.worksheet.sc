@@ -20,7 +20,13 @@ val deps = buildDefn.libraryDependencies.map { dep =>
   Dependency.parse(dep.value, ScalaVersion.of("3.7.2-RC2"))
 }
 
-val lockedDeps =
+val pluginDeps = buildDefn
+  .compilerPlugins
+  .map { dep =>
+    Dependency.parse(dep.value, ScalaVersion.of("3.7.2-RC2"))
+  }
+
+def lock(deps: List[Dependency]) =
   Fetch
     .create()
     .withDependencies(
@@ -43,7 +49,8 @@ val lockedDeps =
     .toList
 
 val lockfile = Lockfile(
-  libraryDependencies = lockedDeps
+  libraryDependencies = lock(deps),
+  compilerPlugins = lock(pluginDeps),
 )
 
 os.write

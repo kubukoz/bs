@@ -2,28 +2,33 @@
 
 let
   bs = {
-    build = { src, scala, libraryDependencies ? [ ], ... }@args:
+    build = { src, scala, libraryDependencies ? [ ], compilerPlugins ? [ ], ...
+      }@args:
       let
         depDerivations =
           let json = builtins.fromJSON (builtins.readFile (./bs-lock.json));
           in builtins.map (dep: builtins.fetchurl dep) json.libraryDependencies;
-      in stdenv.mkDerivation
-      ((builtins.removeAttrs args [ "buildInputs" "buildPhase" "installPhase" ])
-        // {
-          inherit depDerivations;
+      in stdenv.mkDerivation ((builtins.removeAttrs args [
+        "buildInputs"
+        "buildPhase"
+        "installPhase"
+        "libraryDependencies"
+        "compilerPlugins"
+      ]) // {
+        inherit depDerivations;
 
-          buildInputs = [ scala ];
-          buildPhase = ''
-            echo $depDerivations
-            classpath=$(echo ${builtins.concatStringsSep ":" depDerivations})
-            scalac -cp $classpath $src/*.scala
-            jar cf $out/bin/bs.jar com/example/bs/*.class
-          '';
+        buildInputs = [ scala ];
+        buildPhase = ''
+          echo $depDerivations
+          classpath=$(echo ${builtins.concatStringsSep ":" depDerivations})
+          scalac -cp $classpath $src/*.scala
+          jar cf $out/bin/bs.jar com/example/bs/*.class
+        '';
 
-          installPhase = "";
+        installPhase = "";
 
-          meta.buildDefinition = { inherit libraryDependencies; };
-        });
+        meta.buildDefinition = { inherit libraryDependencies compilerPlugins; };
+      });
   };
 
 in bs.build {
@@ -34,7 +39,7 @@ in bs.build {
   scala = scala-next;
 
   libraryDependencies = [
-    # "org.polyvariant:better-tostring:0.3.17"
+    "org.scala-lang::scala3-library:3.7.2-RC2"
     "com.monovore::decline:2.4.1"
     "com.monovore::decline-effect:2.4.1"
     "com.indoorvivants::decline-derive:0.3.1"
@@ -44,4 +49,5 @@ in bs.build {
     "io.get-coursier:interface:1.0.28"
   ];
 
+  compilerPlugins = [ "org.polyvariant:::better-tostring:0.3.17" ];
 }

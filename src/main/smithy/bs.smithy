@@ -5,6 +5,9 @@ namespace bs
 structure BuildDefinition {
     @required
     libraryDependencies: LibraryDependencies
+
+    @required
+    compilerPlugins: LibraryDependencies
 }
 
 list LibraryDependencies {
@@ -16,6 +19,9 @@ string LibraryDependency
 structure Lockfile {
     @required
     libraryDependencies: LockedLibraryDependencies
+
+    @required
+    compilerPlugins: LockedLibraryDependencies
 }
 
 list LockedLibraryDependencies {
