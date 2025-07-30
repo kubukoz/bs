@@ -29,6 +29,8 @@ enum Command derives CommandApplication {
   case Run(@Positional("path") path: FilePath)
 }
 
+case class Foo(s: String)
+
 object Main
   extends CommandIOApp(
     name = "bs",
@@ -37,6 +39,8 @@ object Main
   ) {
 
   override def main: Opts[IO[ExitCode]] = {
+    assert(Foo("AAA").toString() == """Foo(s = "AAA")""")
+
     val pathArg = Opts
       .argument[FilePath]("path")
       .withDefault(os.pwd)

@@ -4,6 +4,9 @@ namespace bs
 
 structure BuildDefinition {
     @required
+    scalaVersion: String
+
+    @required
     libraryDependencies: LibraryDependencies
 
     @required
@@ -17,6 +20,9 @@ list LibraryDependencies {
 string LibraryDependency
 
 structure Lockfile {
+    @required
+    compiler: LockedLibraryDependencies
+
     @required
     libraryDependencies: LockedLibraryDependencies
 

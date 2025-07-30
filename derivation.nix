@@ -1,45 +1,55 @@
-{ stdenv, scala-next }:
+{ stdenv, openjdk, makeWrapper }:
 
 let
   bs = {
-    build = { src, scala, libraryDependencies ? [ ], compilerPlugins ? [ ], ...
-      }@args:
+    build = { src, scalaVersion, libraryDependencies ? [ ]
+      , compilerPlugins ? [ ], ... }@args:
       let
-        depDerivations =
-          let json = builtins.fromJSON (builtins.readFile (./bs-lock.json));
-          in builtins.map (dep: builtins.fetchurl dep) json.libraryDependencies;
+        classpathFrom = key:
+          let
+            json = builtins.fromJSON (builtins.readFile (./bs-lock.json));
+            files = builtins.map (dep: builtins.fetchurl dep) json.${key};
+          in builtins.concatStringsSep ":" files;
       in stdenv.mkDerivation ((builtins.removeAttrs args [
         "buildInputs"
         "buildPhase"
         "installPhase"
+        "scalaVersion"
         "libraryDependencies"
         "compilerPlugins"
       ]) // {
-        inherit depDerivations;
+        classpath = classpathFrom "libraryDependencies";
+        compilerClasspath = classpathFrom "compiler";
+        pluginsClasspath = classpathFrom "compilerPlugins";
 
-        buildInputs = [ scala ];
+        buildInputs = [ openjdk makeWrapper ];
         buildPhase = ''
           echo $depDerivations
-          classpath=$(echo ${builtins.concatStringsSep ":" depDerivations})
-          scalac -cp $classpath $src/*.scala
+          printf "public class Wrapper {\n public static void main(String[] args) { \n new dotty.tools.dotc.Driver().main(args); \n } \n }\n" > Wrapper.java
+          javac -cp $compilerClasspath Wrapper.java
+          java -cp $compilerClasspath:. Wrapper -cp $classpath $src/*.scala -Xplugin:$pluginsClasspath
           jar cf $out/bin/bs.jar com/example/bs/*.class
         '';
 
-        installPhase = "";
+        installPhase = ''
+          makeWrapper ${openjdk}/bin/java $out/bin/bs --add-flags "-cp $classpath:$out/bin/bs.jar com.example.bs.Main"
+        '';
 
-        meta.buildDefinition = { inherit libraryDependencies compilerPlugins; };
+        meta.buildDefinition = {
+          inherit scalaVersion libraryDependencies compilerPlugins;
+        };
       });
   };
+  scalaVersion = "3.7.2-RC2";
 
 in bs.build {
   pname = "bs";
   version = "0.0.1";
   src = ./src/main/scala;
-
-  scala = scala-next;
+  inherit scalaVersion;
 
   libraryDependencies = [
-    "org.scala-lang::scala3-library:3.7.2-RC2"
+    "org.scala-lang::scala3-library:${scalaVersion}"
     "com.monovore::decline:2.4.1"
     "com.monovore::decline-effect:2.4.1"
     "com.indoorvivants::decline-derive:0.3.1"

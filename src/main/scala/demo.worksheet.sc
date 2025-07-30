@@ -11,20 +11,19 @@ import scala.jdk.CollectionConverters.*
 val buildDefn =
   Json
     .read[BuildDefinition](
-      Blob(os.proc("nix", "eval", ".#default.meta.buildDefinition", "--json").call().out.text())
+      Blob(
+        os.proc("nix", "eval", ".#default.meta.buildDefinition", "--json")
+          .call()
+          .out
+          .text()
+      )
     )
     .toTry
     .get
 
-val deps = buildDefn.libraryDependencies.map { dep =>
-  Dependency.parse(dep.value, ScalaVersion.of("3.7.2-RC2"))
-}
+val sv = ScalaVersion.of(buildDefn.scalaVersion)
 
-val pluginDeps = buildDefn
-  .compilerPlugins
-  .map { dep =>
-    Dependency.parse(dep.value, ScalaVersion.of("3.7.2-RC2"))
-  }
+def parseDep(s: String) = Dependency.parse(s, sv)
 
 def lock(deps: List[Dependency]) =
   Fetch
@@ -49,8 +48,9 @@ def lock(deps: List[Dependency]) =
     .toList
 
 val lockfile = Lockfile(
-  libraryDependencies = lock(deps),
-  compilerPlugins = lock(pluginDeps),
+  compiler = lock(List(parseDep(s"org.scala-lang::scala3-compiler:$sv"))),
+  libraryDependencies = lock(buildDefn.libraryDependencies.map(parseDep.compose(_.value))),
+  compilerPlugins = lock(buildDefn.compilerPlugins.map(parseDep.compose(_.value))),
 )
 
 os.write
