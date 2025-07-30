@@ -39,7 +39,10 @@ object Main
   ) {
 
   override def main: Opts[IO[ExitCode]] = {
-    assert(Foo("AAA").toString() == """Foo(s = "AAA")""")
+    assert(
+      Foo("AAA").toString() == """Foo(s = AAA)""",
+      "Foo should have a modified toString, but it's: " + Foo("AAA").toString(),
+    )
 
     val pathArg = Opts
       .argument[FilePath]("path")
