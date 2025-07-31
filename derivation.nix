@@ -23,7 +23,7 @@ in bs.build {
     "com.monovore::decline-effect:2.4.1"
     "com.indoorvivants::decline-derive:0.3.1"
     "org.typelevel::cats-effect:3.5.4"
-    "com.lihaoyi::os-lib:0.10.7"
+    "com.lihaoyi::os-lib:0.11.4"
     "com.disneystreaming.smithy4s::smithy4s-core:0.18.40"
     "io.get-coursier:interface:1.0.28"
   ];

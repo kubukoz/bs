@@ -16,7 +16,7 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-effect" % "3.5.4",
 
       // File system operations
-      "com.lihaoyi" %% "os-lib" % "0.10.7",
+      "com.lihaoyi" %% "os-lib" % "0.11.4",
 
       // Smithy4s
       "com.disneystreaming.smithy4s" %% "smithy4s-json" % smithy4sVersion.value,
