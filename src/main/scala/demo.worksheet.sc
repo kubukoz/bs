@@ -1,7 +1,4 @@
-import bs.BuildDefinition
-import bs.LockedLibraryDependency
-import bs.Lockfile
-import bs.WrapDefinition
+import bs.*
 import cats.syntax.all.*
 import coursierapi.*
 import smithy4s.Blob
@@ -49,17 +46,15 @@ def lock(deps: List[Dependency]) =
     }
     .toList
 
-val lockfile = Lockfile(
-  compiler = lock(List(parseDep(s"org.scala-lang::scala3-compiler:$sv"))),
-  libraryDependencies = lock(buildDefn.libraryDependencies.map(parseDep.compose(_.value))),
-  compilerPlugins = lock(buildDefn.compilerPlugins.map(parseDep.compose(_.value))),
-)
-
 os.write
   .over(
     os.pwd / "bs-lock.json",
     Json.writePrettyString(
-      lockfile
+      Lockfile(
+        compiler = lock(List(parseDep(s"org.scala-lang::scala3-compiler:$sv"))),
+        libraryDependencies = lock(buildDefn.libraryDependencies.map(parseDep.compose(_.value))),
+        compilerPlugins = lock(buildDefn.compilerPlugins.map(parseDep.compose(_.value))),
+      )
     ),
   )
 
@@ -80,10 +75,8 @@ os.write
   .over(
     os.pwd / "smithy4s-lock.json",
     Json.writePrettyString(
-      Map(
-        "libraryDependencies" -> lock(wrapDefn.libraryDependencies.map(parseDep.compose(_.value)))
+      WrapLockfile(
+        libraryDependencies = lock(wrapDefn.libraryDependencies.map(parseDep.compose(_.value)))
       )
-    )(
-      using Schema.map(Schema.string, Schema.list(LockedLibraryDependency.schema))
     ),
   )

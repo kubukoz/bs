@@ -35,6 +35,11 @@ structure Lockfile {
     compilerPlugins: LockedLibraryDependencies
 }
 
+structure WrapLockfile {
+    @required
+    libraryDependencies: LockedLibraryDependencies
+}
+
 list LockedLibraryDependencies {
     member: LockedLibraryDependency
 }
