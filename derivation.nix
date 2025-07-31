@@ -10,6 +10,12 @@ let
             json = builtins.fromJSON (builtins.readFile (./bs-lock.json));
             files = builtins.map (dep: builtins.fetchurl dep) json.${key};
           in builtins.concatStringsSep ":" files;
+        compilerInterface = ''
+          public class CompilerInterface {
+            public static void main(String[] args) {
+              new dotty.tools.dotc.Driver().main(args);
+            }
+          }'';
       in stdenv.mkDerivation ((builtins.removeAttrs args [
         "buildInputs"
         "buildPhase"
@@ -26,14 +32,16 @@ let
         buildPhase = ''
           # set -x
           echo $depDerivations
-          printf "public class Wrapper {\n public static void main(String[] args) { \n new dotty.tools.dotc.Driver().main(args); \n } \n }\n" > Wrapper.java
-          javac -cp $compilerClasspath Wrapper.java
-          java -cp $compilerClasspath:. Wrapper -cp $classpath $src/*.scala -Xplugin:$pluginsClasspath
-          jar cf $out/bin/bs.jar com/example/bs/*.class
+          echo "${compilerInterface}" > CompilerInterface.java
+          javac -cp $compilerClasspath CompilerInterface.java
+          mkdir -p $out/bin
+          java -cp $compilerClasspath:. CompilerInterface -cp $classpath $src/*.scala -Xplugin:$pluginsClasspath -d $out/bin/bs.jar
         '';
 
         installPhase = ''
-          makeWrapper ${openjdk}/bin/java $out/bin/bs --add-flags "-cp $classpath:$out/bin/bs.jar com.example.bs.Main"
+          jar xf $out/bin/bs.jar META-INF/MANIFEST.MF
+          mainClass=$(cat META-INF/MANIFEST.MF | grep Main-Class | cut -d' ' -f2 | tr -d '\r')
+          makeWrapper ${openjdk}/bin/java $out/bin/bs --add-flags "-cp $classpath:$out/bin/bs.jar $mainClass"
         '';
 
         meta.buildDefinition = {
@@ -41,6 +49,7 @@ let
         };
       });
   };
+
   scalaVersion = "3.7.2-RC2";
 
 in bs.build {
