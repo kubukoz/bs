@@ -1,24 +1,24 @@
 {
   "libraryDependencies": [
     {
-      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-codegen-cli_2.13/0.18.40/smithy4s-codegen-cli_2.13-0.18.40.jar",
-      "sha256": "tw9Xi5bpd0VwrwPSQGxFMLLliOmM/gCIrzzNrNtlb9Y="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-codegen-cli_2.13/0.18.41/smithy4s-codegen-cli_2.13-0.18.41.jar",
+      "sha256": "cWzCfkNMg/SFOke4JVwwn9I0+l9qGpHLxJHEUiRcNO0="
     },
     {
       "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar",
       "sha256": "Hrsrb55OtAIkl8GbHh6CUBnAhRT5YqqsGXFF+I7XMPE="
     },
     {
-      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-codegen_2.13/0.18.40/smithy4s-codegen_2.13-0.18.40.jar",
-      "sha256": "hCFqGiNWeNPElIsHaZ4Eh2GzymGNHaZyfsgcopCppEo="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-codegen_2.13/0.18.41/smithy4s-codegen_2.13-0.18.41.jar",
+      "sha256": "a6yUiKWsyE2/1xu+mAXraDSdLpULj4k6gwQGPBjgOHk="
     },
     {
       "url": "https://repo1.maven.org/maven2/com/monovore/decline_2.13/2.4.1/decline_2.13-2.4.1.jar",
       "sha256": "620wgbnz/fEYjVp3ICn/hfxOljuB0HCnac3C8x3ZPdM="
     },
     {
-      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-protocol/0.18.40/smithy4s-protocol-0.18.40.jar",
-      "sha256": "hiSTlwzSYYMrrzE0cXYafxeVbyruCWn9gpjSPWLoQR4="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-protocol/0.18.41/smithy4s-protocol-0.18.41.jar",
+      "sha256": "2yhCFVn6io5AfWk1atE12AMTeZ+Yl/dJuAi2ESR+ZE8="
     },
     {
       "url": "https://repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.13.0/cats-core_2.13-2.13.0.jar",

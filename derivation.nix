@@ -33,7 +33,7 @@ in bs.build {
     "com.indoorvivants::decline-derive:0.3.1"
     "org.typelevel::cats-effect:3.5.4"
     "com.lihaoyi::os-lib:0.11.4"
-    "com.disneystreaming.smithy4s::smithy4s-core:0.18.40"
+    "com.disneystreaming.smithy4s::smithy4s-core:${smithy4s.version}"
     "io.get-coursier:interface:1.0.28"
   ];
 

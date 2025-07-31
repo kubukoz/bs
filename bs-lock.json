@@ -75,8 +75,8 @@
       "sha256": "4SrO2/ZBx+9e4qm6xjYJbfeP/R0izxhxAzID7lm24hQ="
     },
     {
-      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-core_3/0.18.40/smithy4s-core_3-0.18.40.jar",
-      "sha256": "AKeMPdFGjFMQP5uh5GlrkLifTF9jUQ+G8TmFlU8WS10="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-core_3/0.18.41/smithy4s-core_3-0.18.41.jar",
+      "sha256": "waHpvOyjb4I7wkc++3ir+iTRfVc1n2GrdCSozmJe2Lo="
     },
     {
       "url": "https://repo1.maven.org/maven2/io/get-coursier/interface/1.0.28/interface-1.0.28.jar",

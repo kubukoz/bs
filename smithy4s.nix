@@ -1,5 +1,5 @@
 { bs }:
-let version = "0.18.40";
+let version = "0.18.41";
 in bs.wrap {
   inherit version;
   pname = "smithy4s";
