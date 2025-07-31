@@ -11,16 +11,8 @@
         packages.default = pkgs.callPackage ./derivation.nix {
           inherit (self.packages.${system}) smithy4s;
         };
-        packages.smithy4s = let
-          bs = (pkgs.callPackage ./bs.nix { });
-          version = "0.18.40";
-        in bs.wrap {
-          inherit version;
-          pname = "smithy4s";
-          libraryDependencies = [
-            "com.disneystreaming.smithy4s:smithy4s-codegen-cli_2.13:${version}"
-          ];
-          lockFile = ./smithy4s-lock.json;
+        packages.smithy4s = pkgs.callPackage ./smithy4s.nix {
+          bs = pkgs.callPackage ./bs.nix { };
         };
       };
     };
