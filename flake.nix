@@ -17,7 +17,6 @@
         in bs.wrap {
           inherit version;
           pname = "smithy4s";
-          mainClass = "smithy4s.codegen.cli.Main";
           libraryDependencies = [
             "com.disneystreaming.smithy4s:smithy4s-codegen-cli_2.13:${version}"
           ];

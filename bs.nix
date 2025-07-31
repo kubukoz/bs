@@ -6,7 +6,7 @@ let
       files = builtins.map (dep: builtins.fetchurl dep) json.${key};
     in builtins.concatStringsSep ":" files;
 in {
-  wrap = { mainClass, libraryDependencies, lockFile, ... }@args:
+  wrap = { libraryDependencies, lockFile, ... }@args:
     let
       classpathFrom = mkClasspathFrom lockFile;
       myArgs = {
@@ -15,7 +15,14 @@ in {
 
         buildInputs = [ openjdk makeWrapper ];
 
+        mainJar = let
+          json = builtins.fromJSON (builtins.readFile lockFile);
+          url1 = builtins.elemAt json.libraryDependencies 0;
+        in builtins.fetchurl url1;
+
         installPhase = ''
+          jar xf $mainJar META-INF/MANIFEST.MF
+          mainClass=$(cat META-INF/MANIFEST.MF | grep Main-Class | cut -d' ' -f2 | tr -d '\r')
           makeWrapper ${openjdk}/bin/java $out/bin/$pname --add-flags "-cp $classpath $mainClass"
         '';
 
@@ -56,13 +63,13 @@ in {
           scala_files=$(find $srcs -name "*.scala" | tr '\n' ' ')
 
           mkdir -p $out/bin
-          java -cp $compilerClasspath:. CompilerInterface -cp $classpath $scala_files -Xplugin:$pluginsClasspath -d $out/bin/bs.jar
+          java -cp $compilerClasspath:. CompilerInterface -cp $classpath $scala_files -Xplugin:$pluginsClasspath -d $out/bin/$pname.jar
         '';
 
         installPhase = ''
-          jar xf $out/bin/bs.jar META-INF/MANIFEST.MF
+          jar xf $out/bin/$pname.jar META-INF/MANIFEST.MF
           mainClass=$(cat META-INF/MANIFEST.MF | grep Main-Class | cut -d' ' -f2 | tr -d '\r')
-          makeWrapper ${openjdk}/bin/java $out/bin/$pname --add-flags "-cp $classpath:$out/bin/bs.jar $mainClass"
+          makeWrapper ${openjdk}/bin/java $out/bin/$pname --add-flags "-cp $classpath:$out/bin/$pname.jar $mainClass"
         '';
 
         meta.buildDefinition = {
