@@ -10,11 +10,20 @@ let
     '';
 
   scalaVersion = "3.7.2-RC2";
+  smithy4sPlugin = buildDefinition:
+    let inputDirAttr = "smithy4sInputDir";
+    in (builtins.removeAttrs buildDefinition [ inputDirAttr ]) // {
+      srcs = buildDefinition.srcs
+        ++ [ (smithy4sGenerate { src = buildDefinition.${inputDirAttr}; }) ];
+    };
 
 in bs.build {
   pname = "bs";
   version = "0.0.1";
-  srcs = [ ./src/main/scala (smithy4sGenerate { src = ./src/main/smithy; }) ];
+  srcs = [ ./src/main/scala ];
+  smithy4sInputDir = ./src/main/smithy;
+  plugins = [ smithy4sPlugin ];
+
   inherit scalaVersion;
 
   libraryDependencies = [

@@ -37,9 +37,12 @@ in {
       ]) // myArgs;
     in stdenv.mkDerivation finalArgs;
   build = { srcs, lockFile ? ./bs-lock.json, scalaVersion
-    , libraryDependencies ? [ ], compilerPlugins ? [ ], mainClass ? "", ...
-    }@args:
+    , libraryDependencies ? [ ], compilerPlugins ? [ ], mainClass ? ""
+    , plugins ? [ ], ... }@args:
     let
+      combinePlugins =
+        builtins.foldl' (p1: p2: build: p2 (p1 build)) (build: build);
+
       classpathFrom = mkClasspathFrom lockFile;
       compilerInterface = ''
         public class CompilerInterface {
@@ -85,6 +88,7 @@ in {
         "libraryDependencies"
         "compilerPlugins"
         "lockfile"
+        "plugins"
       ]) // myArgs;
-    in stdenv.mkDerivation finalArgs;
+    in stdenv.mkDerivation (combinePlugins plugins finalArgs);
 }
