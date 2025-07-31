@@ -1,12 +1,13 @@
 { openjdk, makeWrapper, stdenv }:
 
 {
-  build = { src, scalaVersion, libraryDependencies ? [ ], compilerPlugins ? [ ]
-    , mainClass ? "", ... }@args:
+  build = { src, lockFile ? ./bs-lock.json, scalaVersion
+    , libraryDependencies ? [ ], compilerPlugins ? [ ], mainClass ? "", ...
+    }@args:
     let
       classpathFrom = key:
         let
-          json = builtins.fromJSON (builtins.readFile (./bs-lock.json));
+          json = builtins.fromJSON (builtins.readFile lockFile);
           files = builtins.map (dep: builtins.fetchurl dep) json.${key};
         in builtins.concatStringsSep ":" files;
       compilerInterface = ''
