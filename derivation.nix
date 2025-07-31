@@ -1,13 +1,18 @@
-{ callPackage }:
+{ callPackage, runCommandNoCC, smithy4s }:
 
 let
   bs = (callPackage ./bs.nix { });
   scalaVersion = "3.7.2-RC2";
-
+  # run smithy4s/bin/smithy4s generate ${./src/main/smithy} --output $out
+  runSmithy4s = runCommandNoCC "runSmithy4s" { buildInputs = [ smithy4s ]; } ''
+    mkdir -p .coursier/cache
+    export COURSIER_CACHE=.coursier/cache
+    smithy4s generate ${./src/main/smithy} --output $out
+  '';
 in bs.build {
   pname = "bs";
   version = "0.0.1";
-  src = ./src/main/scala;
+  srcs = [ ./src/main/scala runSmithy4s ];
   inherit scalaVersion;
 
   libraryDependencies = [

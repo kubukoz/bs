@@ -39,8 +39,7 @@ object Main
   ) {
 
   override def main: Opts[IO[ExitCode]] = {
-    // todo: support actually generating code so that this builds
-    // println(bs.LibraryDependency("test-dep"))
+    println(bs.LibraryDependency("test-dep"))
     assert(
       Foo("AAA").toString() == """Foo(s = AAA)""",
       "Foo should have a modified toString, but it's: " + Foo("AAA").toString(),

@@ -1,10 +1,12 @@
 import bs.BuildDefinition
 import bs.LockedLibraryDependency
 import bs.Lockfile
+import bs.WrapDefinition
 import cats.syntax.all.*
 import coursierapi.*
 import smithy4s.Blob
 import smithy4s.json.Json
+import smithy4s.schema.Schema
 
 import scala.jdk.CollectionConverters.*
 
@@ -58,5 +60,30 @@ os.write
     os.pwd / "bs-lock.json",
     Json.writePrettyString(
       lockfile
+    ),
+  )
+
+val wrapDefn =
+  Json
+    .read[WrapDefinition](
+      Blob(
+        os.proc("nix", "eval", ".#smithy4s.meta.buildDefinition", "--json")
+          .call()
+          .out
+          .text()
+      )
+    )
+    .toTry
+    .get
+
+os.write
+  .over(
+    os.pwd / "smithy4s-lock.json",
+    Json.writePrettyString(
+      Map(
+        "libraryDependencies" -> lock(wrapDefn.libraryDependencies.map(parseDep.compose(_.value)))
+      )
+    )(
+      using Schema.map(Schema.string, Schema.list(LockedLibraryDependency.schema))
     ),
   )

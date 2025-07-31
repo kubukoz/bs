@@ -13,6 +13,11 @@ structure BuildDefinition {
     compilerPlugins: LibraryDependencies
 }
 
+structure WrapDefinition {
+    @required
+    libraryDependencies: LibraryDependencies
+}
+
 list LibraryDependencies {
     member: LibraryDependency
 }
