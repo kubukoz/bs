@@ -111,6 +111,7 @@ object Main
         )
       _ <- IO.println(s"Lockfile built: ${lockfile.hashCode()}")
       _ <- Lockfiles.write(os.pwd / "bs-lock.json", lockfile)
+      _ <- Nix.call("build", "--print-build-logs")
     } yield ()
 
 }
@@ -119,10 +120,14 @@ object Nix {
 
   def call(args: String*): IO[String] = IO
     .interruptibleMany {
-      os.proc("nix", args)
-        .call()
-        .out
-        .text()
+      val p = os
+        .proc("nix", args)
+        .spawn(
+          stdout = os.Pipe
+        )
+
+      p.waitFor()
+      p.stdout.text()
     }
 
 }
