@@ -31,9 +31,10 @@ in bs.build {
     "com.monovore::decline:2.4.1"
     "com.monovore::decline-effect:2.4.1"
     "com.indoorvivants::decline-derive:0.3.1"
-    "org.typelevel::cats-effect:3.5.4"
+    "org.typelevel::cats-core:2.13.0"
+    "org.typelevel::cats-effect:3.6.3"
     "com.lihaoyi::os-lib:0.11.4"
-    "com.disneystreaming.smithy4s::smithy4s-core:${smithy4s.version}"
+    "com.disneystreaming.smithy4s::smithy4s-json:${smithy4s.version}"
     "io.get-coursier:interface:1.0.28"
   ];
 

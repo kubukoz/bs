@@ -67,16 +67,20 @@
       "sha256": "noVNmKJ9JzwedsIvWfk0ng4W9KXhyh9N+sD6LlJRMKM="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect_3/3.5.4/cats-effect_3-3.5.4.jar",
-      "sha256": "rGJ5et0jsDyRhfV0IDkkZxKq0t2kwrLRnQVk0j2rLJc="
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-core_3/2.13.0/cats-core_3-2.13.0.jar",
+      "sha256": "4qv83+BBzgjYQHQSsJ1V6zPrhWVcIsnIgVcS06rWM8Y="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect_3/3.6.3/cats-effect_3-3.6.3.jar",
+      "sha256": "Wj5mxT65sXs17Mvui2AeYijJz4tJRJ5h02W5uCVbavs="
     },
     {
       "url": "https://repo1.maven.org/maven2/com/lihaoyi/os-lib_3/0.11.4/os-lib_3-0.11.4.jar",
       "sha256": "4SrO2/ZBx+9e4qm6xjYJbfeP/R0izxhxAzID7lm24hQ="
     },
     {
-      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-core_3/0.18.41/smithy4s-core_3-0.18.41.jar",
-      "sha256": "waHpvOyjb4I7wkc++3ir+iTRfVc1n2GrdCSozmJe2Lo="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-json_3/0.18.41/smithy4s-json_3-0.18.41.jar",
+      "sha256": "DbaUdTHpyrIIIJd6AxEcIa1hpHtSHTEZ7U54M7Usi1s="
     },
     {
       "url": "https://repo1.maven.org/maven2/io/get-coursier/interface/1.0.28/interface-1.0.28.jar",
@@ -87,32 +91,40 @@
       "sha256": "Hrsrb55OtAIkl8GbHh6CUBnAhRT5YqqsGXFF+I7XMPE="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-core_3/2.12.0/cats-core_3-2.12.0.jar",
-      "sha256": "24dUmBKBIVB4mRqoIoVi6AbYRevoRB9sU4756FtFYKQ="
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-kernel_3/2.13.0/cats-kernel_3-2.13.0.jar",
+      "sha256": "pq+q0nTioPu9GJv+Og6RgQvVYnRVc5lQEZQ0J+pIkEA="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_3/3.5.4/cats-effect-kernel_3-3.5.4.jar",
-      "sha256": "AzdWNv3RCGQXUx4DBbS3+6Pi9ivXskFYffBbXLlapcc="
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_3/3.6.3/cats-effect-kernel_3-3.6.3.jar",
+      "sha256": "Ha76YsjV9xhBGlZDQ14VvIT7ncaDJrhIjcmATjrKxbU="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-std_3/3.5.4/cats-effect-std_3-3.5.4.jar",
-      "sha256": "dI6y740BXHXpaEIoDCxkh4KlsP7HzEpLOoCi8m9qK6o="
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect-std_3/3.6.3/cats-effect-std_3-3.6.3.jar",
+      "sha256": "FQvxMSo9BNmqJxGpk0ZpJvzhyc2GfwhzbO54vyc4hZs="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-mtl_3/1.3.1/cats-mtl_3-1.3.1.jar",
+      "sha256": "wfwDX8DxPIAye36TPDIo8tb69oaqCUsyH0u9O2WNBnQ="
     },
     {
       "url": "https://repo1.maven.org/maven2/com/lihaoyi/geny_3/1.1.1/geny_3-1.1.1.jar",
       "sha256": "OWWGSfkLYxpP1jGHck8WuooEXhsQpRNSjzRRf7Lt+Ys="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_3/2.11.0/scala-collection-compat_3-2.11.0.jar",
-      "sha256": "i8O4+FbX/9IfoND+WnKczaEiizlBLzIANRl5gx5inUg="
+      "url": "https://repo1.maven.org/maven2/com/disneystreaming/smithy4s/smithy4s-core_3/0.18.41/smithy4s-core_3-0.18.41.jar",
+      "sha256": "waHpvOyjb4I7wkc++3ir+iTRfVc1n2GrdCSozmJe2Lo="
+    },
+    {
+      "url": "https://repo1.maven.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-core_3/2.30.2/jsoniter-scala-core_3-2.30.2.jar",
+      "sha256": "SIgKNwVcjbgtQ55TtpyWkQR3hcpaI8L+z000I1q1zkY="
     },
     {
       "url": "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
       "sha256": "0+9XXj5JeWeNwBvx3M5RAhSTtNEft/G+itmCh3wWocA="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/typelevel/cats-kernel_3/2.12.0/cats-kernel_3-2.12.0.jar",
-      "sha256": "WqV9DJBrTG5FdeVUj06nUjosQUBCS335IjkWKgyhf3c="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_3/2.11.0/scala-collection-compat_3-2.11.0.jar",
+      "sha256": "i8O4+FbX/9IfoND+WnKczaEiizlBLzIANRl5gx5inUg="
     }
   ],
   "compilerPlugins": [
