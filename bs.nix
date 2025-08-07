@@ -50,23 +50,40 @@ in {
             new dotty.tools.dotc.Driver().main(args);
           }
         }'';
+
+      compilerClasspath = classpathFrom "compiler";
+      buildCompilerInterface = stdenv.mkDerivation {
+        pname = "bs-scala-compiler-interface";
+        version = scalaVersion;
+
+        inherit compilerClasspath;
+        dontUnpack = true;
+
+        buildInputs = [ openjdk ];
+        buildPhase = ''
+          echo "${compilerInterface}" > CompilerInterface.java
+          javac -cp $compilerClasspath CompilerInterface.java
+        '';
+
+        installPhase = ''
+          mkdir -p $out/share
+          cp CompilerInterface.class $out/share/CompilerInterface.class
+        '';
+      };
+
       myArgs = {
         classpath = classpathFrom "libraryDependencies";
-        compilerClasspath = classpathFrom "compiler";
         pluginsClasspath = classpathFrom "compilerPlugins";
-        inherit srcs;
+        inherit srcs compilerClasspath;
 
         dontUnpack = true;
         buildInputs = [ openjdk makeWrapper ];
         buildPhase = ''
           # set -x
-          echo "${compilerInterface}" > CompilerInterface.java
-          javac -cp $compilerClasspath CompilerInterface.java
-
           scala_files=$(find $srcs -name "*.scala" | tr '\n' ' ')
 
           mkdir -p $out/bin
-          java -cp $compilerClasspath:. CompilerInterface -cp $classpath $scala_files -Xplugin:$pluginsClasspath -d $out/bin/$pname.jar
+          java -cp $compilerClasspath:${buildCompilerInterface}/share CompilerInterface -cp $classpath $scala_files -Xplugin:$pluginsClasspath -d $out/bin/$pname.jar
         '';
 
         installPhase = ''
