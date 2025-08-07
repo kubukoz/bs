@@ -59,7 +59,7 @@ object Main
 
   private def executeCommand(command: Command): IO[ExitCode] =
     command match {
-      case Command.Build(path) => IO.stub
+      case Command.Build(path) => IO.println("buildin'") *> IO.stub
       case Command.Dev(path)   => IO.stub
       case Command.Run(path)   => IO.stub
       case Command.Sandbox()   => sandbox.as(ExitCode.Success)
