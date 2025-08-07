@@ -9,7 +9,7 @@ let
       smithy4s generate ${src} --output $out
     '';
 
-  scalaVersion = "3.7.3-RC1";
+  scalaVersion = "3.7.2";
   smithy4sPlugin = buildDefinition:
     let inputDirAttr = "smithy4sInputDir";
     in (builtins.removeAttrs buildDefinition [ inputDirAttr ]) // {

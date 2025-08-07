@@ -1,20 +1,20 @@
 {
   "compiler": [
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3-RC1/scala3-compiler_3-3.7.3-RC1.jar",
-      "sha256": "G9Pb5WMWaEkAj2op+ESL8nVN87ZlvSVgUPROCEZ60bQ="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.2/scala3-compiler_3-3.7.2.jar",
+      "sha256": "PsvofWsPjYbMzI62rYO2ISatcUpMyOsAr6PntIFRgwM="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3-RC1/scala3-interfaces-3.7.3-RC1.jar",
-      "sha256": "nPdARoCIbtgp1pgvivwqA0a50A0+eLu8wKIhCwWyjKg="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.2/scala3-interfaces-3.7.2.jar",
+      "sha256": "0VHlK/zETAceMrqspz8tc9x+yj+ULsXOFvIh0ae2nvI="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3-RC1/scala3-library_3-3.7.3-RC1.jar",
-      "sha256": "MLFRRFSl4J75cFMwqKpnkP+rJfuH/Z16XSJLL/GFhuQ="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.2/scala3-library_3-3.7.2.jar",
+      "sha256": "JBIJzO/5h29JGGXmgxCdAvMs+Qvf9cxsIDRmH1YUXpU="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3-RC1/tasty-core_3-3.7.3-RC1.jar",
-      "sha256": "uJ/del/kLh5C8cMjG+yl+vSAuB5PDBzEE+TGpxb4M60="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.2/tasty-core_3-3.7.2.jar",
+      "sha256": "Elt5HU3c9aGHr64d5RWAZ9+7/pb36upzQA2XzGDnStE="
     },
     {
       "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.8.0-scala-1/scala-asm-9.8.0-scala-1.jar",
@@ -51,8 +51,8 @@
   ],
   "libraryDependencies": [
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3-RC1/scala3-library_3-3.7.3-RC1.jar",
-      "sha256": "MLFRRFSl4J75cFMwqKpnkP+rJfuH/Z16XSJLL/GFhuQ="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.2/scala3-library_3-3.7.2.jar",
+      "sha256": "JBIJzO/5h29JGGXmgxCdAvMs+Qvf9cxsIDRmH1YUXpU="
     },
     {
       "url": "https://repo1.maven.org/maven2/com/monovore/decline_3/2.5.0/decline_3-2.5.0.jar",
@@ -129,24 +129,24 @@
   ],
   "compilerPlugins": [
     {
-      "url": "https://repo1.maven.org/maven2/org/polyvariant/better-tostring_3.7.3-RC1/0.3.17/better-tostring_3.7.3-RC1-0.3.17.jar",
-      "sha256": "0lfW+6FPmkgkGZCKiysD0ZyZyAtNUBP86Y/wtrKeonA="
+      "url": "https://repo1.maven.org/maven2/org/polyvariant/better-tostring_3.7.2/0.3.17/better-tostring_3.7.2-0.3.17.jar",
+      "sha256": "X6gOL2Mpxee7ahaZpf/nE2Ba3e6v6b2GfwxoKCmYMls="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3-RC1/scala3-compiler_3-3.7.3-RC1.jar",
-      "sha256": "G9Pb5WMWaEkAj2op+ESL8nVN87ZlvSVgUPROCEZ60bQ="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.2/scala3-compiler_3-3.7.2.jar",
+      "sha256": "PsvofWsPjYbMzI62rYO2ISatcUpMyOsAr6PntIFRgwM="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3-RC1/scala3-library_3-3.7.3-RC1.jar",
-      "sha256": "MLFRRFSl4J75cFMwqKpnkP+rJfuH/Z16XSJLL/GFhuQ="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.2/scala3-library_3-3.7.2.jar",
+      "sha256": "JBIJzO/5h29JGGXmgxCdAvMs+Qvf9cxsIDRmH1YUXpU="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3-RC1/scala3-interfaces-3.7.3-RC1.jar",
-      "sha256": "nPdARoCIbtgp1pgvivwqA0a50A0+eLu8wKIhCwWyjKg="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.2/scala3-interfaces-3.7.2.jar",
+      "sha256": "0VHlK/zETAceMrqspz8tc9x+yj+ULsXOFvIh0ae2nvI="
     },
     {
-      "url": "https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3-RC1/tasty-core_3-3.7.3-RC1.jar",
-      "sha256": "uJ/del/kLh5C8cMjG+yl+vSAuB5PDBzEE+TGpxb4M60="
+      "url": "https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.2/tasty-core_3-3.7.2.jar",
+      "sha256": "Elt5HU3c9aGHr64d5RWAZ9+7/pb36upzQA2XzGDnStE="
     },
     {
       "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.8.0-scala-1/scala-asm-9.8.0-scala-1.jar",
